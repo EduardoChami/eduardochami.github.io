@@ -1,0 +1,579 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Eduardo Chami - Civil Engineer Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* Add custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #000; /* Change background color to black */
+            color: #fff; /* Change text color to white */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            position: relative; /* Position relative for image positioning */
+        }
+
+        section {
+            padding: 0; /* Remove padding between sections */
+            margin: 0; /* Remove margin between sections */
+            background-color: #000; /* Change background color to black */
+            overflow-y: auto; /* Add vertical scroll if content exceeds viewport height */
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            color: #fff; /* Change text color to white */
+            text-align: center; /* Align text to the center */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Add text shadow */
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: center; /* Align text to the center */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Add text shadow */
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .button {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background: #555;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        form textarea {
+            height: 150px;
+        }
+
+        .icons {
+            list-style: none;
+            padding: 0;
+        }
+
+        .icons li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .icons li a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #333;
+            color: #fff;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .icons li a:hover {
+            background: #555;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        /* Navbar Styles */
+        #nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure it's on top of other content */
+            background-color: #000; /* Change background color to black */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: Add a shadow for depth */
+        }
+
+        #nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #nav ul li {
+            float: left;
+        }
+
+        #nav ul li a {
+            display: block;
+            color: #fff; /* Change text color to white */
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        #nav ul li a:hover {
+            background-color: #f4f4f4;
+            color: #000; /* Change text color to black */
+        }
+
+        /* Header Styles */
+        #header {
+            text-align: center; /* Align the content to the center */
+            position: relative; /* Position relative for z-index */
+            height: 100vh; /* Set height to 100% of viewport height */
+        }
+
+        #header img {
+            position: absolute; /* Position the image absolutely */
+            bottom: 0; /* Align image to the bottom */
+            right: 0; /* Align image to the right */
+            max-width: 100%; /* Limit image width to its container */
+            max-height: 100%; /* Limit image height to its container */
+            width: auto; /* Ensure image width adjusts proportionally */
+            height: auto; /* Ensure image height adjusts proportionally */
+            border: none; /* Remove border */
+            box-shadow: none; /* Remove shadow */
+        }
+
+        #header-content {
+            position: absolute; /* Position the content over the image */
+            top: 50%; /* Position content at vertical center */
+            left: 50%; /* Position content at horizontal center */
+            transform: translate(-50%, -50%); /* Center content horizontally and vertically */
+            z-index: 2; /* Ensure content is above the background image */
+        }
+
+        /* Customized Title Styles */
+        .section-title {
+            background-color: #000; /* Change background color to black */
+            color: #fff; /* Change text color to white */
+            padding: 10px 0; /* Add padding */
+            text-align: center; /* Align text to the center */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Add text shadow */
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%; /* Adjust container width for smaller screens */
+            }
+
+            h1, h2, h3, p {
+                text-align: center; /* Center text for smaller screens */
+            }
+
+            #header img {
+                width: 100%; /* Make the image fill its container */
+            }
+        }
+
+        /* Adjust margin and padding for main sections */
+        #tools.main,
+        #work.main,
+        #portfolio.main,
+        #contact.main {
+            padding-top: 50px;
+        }
+        
+        .content {
+            padding-bottom: 0;
+        }
+
+        /* Tool Bars */
+        .tool-bars {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .tool {
+            width: calc(33.33% - 10px);
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: transparent; /* Change background color to transparent */
+            border: 2px solid #000; /* Change border color to black */
+            border-radius: 5px;
+            box-shadow: none; /* Remove box shadow */
+            text-align: center;
+        }
+
+        .tool h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #fff; /* Change text color to white */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Add text shadow */
+        }
+
+        .tool-bar {
+            background-color: transparent; /* Change background color to transparent */
+            border-radius: 5px;
+            height: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-level {
+            background-color: #007bff;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: width 0.5s ease;
+        }
+
+        /* Work Experience Timeline */
+        .timeline {
+            position: relative;
+            margin-top: 30px;
+            padding-left: 40px;
+        }
+
+        .entry {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -20px;
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            border: 2px solid #000;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #ccc;
+        }
+        .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            opacity: 0; /* Initially hidden */
+        }
+
+        .portfolio-info h3, .portfolio-info p {
+            margin: 0;
+            color: #fff;
+        }
+
+        .portfolio-item:hover .portfolio-info {
+            opacity: 1; /* Show on hover */
+        }
+  /* Add custom CSS styles here */
+        .portfolio-item {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            flex-direction: column; /* Arrange items vertically */
+            text-align: center; /* Center content horizontally */
+        }
+        .portfolio-item img {
+            max-width: 100%;
+            height: auto; /* Ensure image height adjusts proportionally */
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+<!-- Navigation -->
+<nav id="nav">
+    <ul class="container">
+        <li><a href="#header">Home</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#work">Work Experience</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+    </ul>
+</nav>
+
+<!-- Header -->
+<section id="header" class="dark">
+    <header>
+        <div class="container" id="header-content">
+            <h1>Hello, I'm Eduardo Chami</h1>
+            <p id="profession">A Civil Engineer</p>
+        </div>
+        <img src="images/fotocv.png" alt="Background Image" />
+    </header>
+</section>
+
+<!-- JavaScript for typing effect -->
+<script>
+    const professions = [
+        "BIM Modeler",
+        "Power Platform Dev",
+        "Data Lover"
+    ];
+
+    let index = 0;
+    let currentIndex = 0;
+    let currentText = "";
+    let letter = "";
+
+    function type() {
+        if (currentIndex < professions[index].length) {
+            currentText += professions[index].charAt(currentIndex);
+            document.getElementById("profession").innerHTML = "And I'm a " + currentText; // Modified to add "And I'm a "
+            currentIndex++;
+            setTimeout(type, 100);
+        } else {
+            setTimeout(erase, 2000);
+        }
+    }
+
+    function erase() {
+        if (currentIndex >= 0) {
+            currentText = professions[index].substring(0, currentIndex);
+            document.getElementById("profession").innerHTML = "And I'm a " + currentText; // Modified to add "And I'm a "
+            currentIndex--;
+            setTimeout(erase, 100);
+        } else {
+            index = (index + 1) % professions.length;
+            setTimeout(type, 500);
+        }
+    }
+
+    window.onload = function() {
+        setTimeout(type, 500);
+    };
+</script>
+
+<!-- Tools -->
+<section id="tools" class="main">
+    <div class="section-title">Tools</div>
+    <div class="content dark style1 featured">
+        <div class="container">
+            <div class="tool-bars">
+                <!-- Tool Bars -->
+                <div class="tool">
+                    <h3>Revit</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <h3>Dynamo</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <h3>Power BI</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <h3>Power Apps</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <h3>Power Automate</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <h3>Twinmotion</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <h3>Naviswork</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <h3>ArqGIS</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <h3>Autocad</h3>
+                    <div class="tool-bar">
+                        <div class="tool-level" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <!-- Add more tools here -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work Experience -->
+<section id="work" class="main">
+    <div class="section-title">Work Experience</div>
+    <div class="content dark style2">
+        <div class="container">
+            <!-- Work experience content goes here -->
+            <div class="timeline">
+                <!-- Timeline goes here -->
+                <div class="entry">
+                    <div class="title">Optimo Soluciones Cementicias</div>
+                    <div class="duration">Construction finishing supervisor - 6 onths</div>
+                </div>
+                <div class="entry">
+                    <div class="title">Agency Leads</div>
+                    <div class="duration">Data entry clerk - 1 year</div>
+                </div>
+                <div class="entry">
+                    <div class="title">IngenioBIM</div>
+                    <div class="duration">BIM Modeler & Power Platform Dev - 10 months</div>
+                </div>
+                
+                <!-- Add more work experience entries here -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio" class="main">
+    <div class="section-title">Portfolio</div>
+    <div class="content dark style3">
+        <div class="container">
+            <div class="portfolio-grid">
+                <!-- Portfolio items -->
+                <div class="portfolio-item">
+                    <img src="images/Image28.png" alt="Portfolio Item 1">
+                    <div class="portfolio-info">
+                        <h3>@bayelasoluciones</h3>
+                        <p>Instagram account I use to share my personal proyects</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/cute-animated-pictures-p6cop4cbvfnm13ze.jpg" alt="Portfolio Item 2" style="height: 435px;width: 435px;">
+                    <div class="portfolio-info">
+                        <h3>Thanks for checking me out :3</h3>
+                        <p>You`ll see more stuff around here soon</p>
+                    </div>
+                </div>
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact" class="main">
+    <div class="section-title">Contact Me</div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<section id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.linkedin.com/in/eduardo-chami-7325851b7/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://www.instagram.com/bayelasoluciones/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <ul class="menu">
+                <li>&copy; Eduardo Alejandro Chami Julián. All rights reserved.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+    // Smooth scrolling for anchor links
+    $(document).ready(function(){
+        $('a[href^="#"]').on('click', function(event) {
+            var target = $(this.getAttribute('href'));
+            if( target.length ) {
+                event.preventDefault();
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+            }
+        });
+    });
+</script>
+</body>
+</html>
